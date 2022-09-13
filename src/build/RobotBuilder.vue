@@ -4,19 +4,19 @@
     <div class="top-row">
       <div :class="[saleBorderClass, 'top', 'part']">
         <div class="robot-name">
-          {{selectedRobot.head.title}}
-          <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
+          <!-- {{selectedRobot.head.title}}
+          <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span> -->
         </div>
-          <PartSelector/>
+          <PartSelector :parts="availableParts.heads"/>
       </div>
     </div>
     <div class="middle-row">
-      <PartSelector/>
-      <PartSelector/>
-      <PartSelector/>
+      <PartSelector :parts="availableParts.arms"/>
+      <PartSelector :parts="availableParts.torsos"/>
+      <PartSelector :parts="availableParts.arms"/>
     </div>
     <div class="bottom-row">
-      <PartSelector/>
+      <PartSelector :parts="availableParts.bases" />
     </div>
     <div>
       <h1>Cart</h1>
@@ -40,7 +40,7 @@
 
 <script>
 import CreatedHookMixin from './created-hook-mixin';
-import awailableParts from '../data/parts';
+import availableParts from '../data/parts';
 import PartSelector from './PartSelector.vue';
 
 export default {
@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       cart: [],
-      awailableParts,
+      availableParts,
       selectedRobot: {
         head: {},
         leftArm: {},
