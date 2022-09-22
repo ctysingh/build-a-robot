@@ -1,6 +1,7 @@
 <template>
  <div class="content">
   <div class="preview">
+    <CollapsableSection>
     <div class="preview-content">
       <div class="top-row">
         <img :src="selectedRobot.head.src"/>
@@ -14,6 +15,7 @@
         <img :src="selectedRobot.base.src"/>
       </div>
     </div>
+    </CollapsableSection>
     <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
   </div>
 
@@ -73,10 +75,11 @@
 import CreatedHookMixin from './created-hook-mixin';
 import availableParts from '../data/parts';
 import PartSelector from './PartSelector.vue';
+import CollapsableSection from '../shared/CollapsableSection.vue';
 
 export default {
   name: 'Robot-Builder',
-  components: { PartSelector },
+  components: { PartSelector, CollapsableSection },
   // created() {
   //   console.log('component created..');
   // },
