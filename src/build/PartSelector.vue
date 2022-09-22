@@ -38,6 +38,9 @@ export default {
       return this.parts[this.selectedPartIndex];
     },
   },
+  created() {
+    this.emitSelectedPart();
+  },
   updated() {
     this.emitSelectedPart();
   },
